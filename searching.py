@@ -31,7 +31,7 @@ def linear_search(prohledavana_data, hledane_cislo):
             pozice.append(idx)
 
     pocet = prohledavana_data.count(hledane_cislo)
-    slovnik = dict("pozice:" + pozice, "pocet:" + pocet)
+    slovnik = {"pozice" : pozice, "pocet": pocet}
     return slovnik
 
 def main():
