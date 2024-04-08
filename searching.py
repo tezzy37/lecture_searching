@@ -24,12 +24,27 @@ def read_data(file_name, field):
     #vrácení hodnot
     return data.get(field)
 
+def linear_search(prohledavana_data, hledane_cislo):
+    pozice = []
+    for idx, i in enumerate(prohledavana_data):
+        if i == hledane_cislo:
+            pozice.append(idx)
+
+    pocet = prohledavana_data.count(hledane_cislo)
+    slovnik = dict("pozice:" + pozice, "pocet:" + pocet)
+    return slovnik
+
 def main():
     #pass
     #zavolat funkci read_data s pozadovanými vstupy
     sequential_data = read_data("sequential.json", "unordered_numbers")
     #vytiskni obsah promenne  sequential_data
     print(sequential_data)
+    number = 63
+    slovnik = linear_search(sequential_data, number)
+
+    print(slovnik)
+
 
 if __name__ == '__main__':
     main()
