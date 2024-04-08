@@ -33,17 +33,31 @@ def linear_search(prohledavana_data, hledane_cislo):
     pocet = prohledavana_data.count(hledane_cislo)
     slovnik = {"pozice" : pozice, "pocet": pocet}
     return slovnik
+def pattern_search(proh_sek, hledany_vzor):
+    lis = []
+    for j in range(len(proh_sek)-len(hledany_vzor)+1):
+        k = proh_sek[j:j+len(hledany_vzor)]
+        if k == hledany_vzor:
+            lis.append(j)
+        else:
+            continue
+
+    mnozina = set(lis)
+    return mnozina
 
 def main():
     #pass
     #zavolat funkci read_data s pozadovanými vstupy
-    sequential_data = read_data("sequential.json", "unordered_numbers")
+    sequential_data = read_data("sequential.json", "dna_sequence")
     #vytiskni obsah promenne  sequential_data
     print(sequential_data)
-    number = 63
+    number = "A"
     slovnik = linear_search(sequential_data, number)
-
     print(slovnik)
+    vzor = "AA"
+    mnozina = pattern_search(sequential_data, vzor)
+    print(mnozina)
+
 
 
 if __name__ == '__main__':
